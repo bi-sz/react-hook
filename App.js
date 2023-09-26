@@ -1,11 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
+import StateWithClassComponent from './StateWithClassComponent';
+import StateWithFuctionalComponent from './StateWithFuctionalComponent';
+import UseEffectWithClassComponent from './UseEffectWithClassComponent';
+import UseEffectWithFunctionalComponent from './UseEffectWithFunctionalComponent';
 
 export default function App() {
+  const [isTrue, setIsTrue] = useState(true);
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+        {/* <StateWithClassComponent /> */}
+        {/* <StateWithFuctionalComponent /> */}
+        {isTrue ? <UseEffectWithClassComponent /> : null}
+        {/* {isTrue && <UseEffectWithClassComponent />} */}
+        {/* <UseEffectWithFunctionalComponent /> */}
+
+        <Button title="toggle" onPress={() => setIsTrue(!isTrue)} />
     </View>
   );
 }
